@@ -8,6 +8,13 @@ section .bss
 section .text
 global _start
 
+_start:
+	call open
+	call read
+	call print
+	mov ebx, eax
+	mov eax, 1	
+	int 80h	
 read:
 	mov ebx, eax	; file desc
 	mov eax, 3
@@ -31,10 +38,3 @@ open:
 	int 80h
 	ret
 
-_start:
-	call open
-	call read
-	call print
-	mov ebx, eax
-	mov eax, 1	
-	int 80h	
