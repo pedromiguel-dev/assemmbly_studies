@@ -11,8 +11,6 @@ while getopts s:o:l:c: flag; do
 	esac
 done
 
-echo "--------$c_files"
-
 filename="./$source"
 
 if [ -f $filename ]; then
@@ -23,16 +21,14 @@ else
 fi
 
 if [ "$link_c" == "true" ]; then
+	mkdir ../build
 	nasm -f elf -o $output.o $source
 	echo "lining: $source with c functions"
 	gcc -no-pie -m32 $output.o $c_files -o $output
-	mkdir ../build
 	mv $output ../build
 else
-	nasm -f elf -o $output.o $source
+	mkdir -p ./build
+	nasm -f elf -o ./build/$output.o $source
 	echo "lining: $source"
-	ld -m elf_i386 -o $output $output.o
-	mkdir ../build
-	mv $output ../build
-
+	ld -m elf_i386 -o ./build/$output ./build/$output.o
 fi

@@ -1,5 +1,5 @@
 section .data
-	pathname	dd	"/var/home/pedromiguel_dev/Projetos/asm/nasm/exemple.txt", 0
+	pathname	dd	"exemple.txt", 0
 	O_RDWR		equ	2	
 
 section .bss

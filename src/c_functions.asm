@@ -1,3 +1,4 @@
+; from stdio.h
 extern printf
 extern exit
 

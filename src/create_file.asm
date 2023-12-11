@@ -1,5 +1,5 @@
 section .data
-	pathname	dd	"/var/home/pedromiguel_dev/Projetos/asm/nasm/exemple.txt", 0
+	pathname	dd	"exemple.txt", 0
 	to_write	dd	"Hello world!",0AH,0DH,"$"
 	O_RDWR		equ	2	
 	S_CREAT_WRITE		equ	101o
