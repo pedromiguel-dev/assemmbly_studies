@@ -25,7 +25,7 @@ global _start
 
 
 open_file:
-	;eax: filename
+	; eax: filename
 	mov ebx, eax
 	mov eax, 5
 	mov ecx, flags
