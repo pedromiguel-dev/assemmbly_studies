@@ -21,11 +21,10 @@ else
 fi
 
 if [ "$link_c" == "true" ]; then
-	mkdir ../build
-	nasm -f elf -o $output.o $source
+	mkdir ./build
+	nasm -f elf -o ./build/$output.o $source
 	echo "lining: $source with c functions"
-	gcc -no-pie -m32 $output.o $c_files -o $output
-	mv $output ../build
+	gcc -no-pie -m32 ./build/$output.o $c_files -o ./build/$output
 else
 	mkdir -p ./build
 	nasm -f elf -o ./build/$output.o $source
